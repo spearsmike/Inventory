@@ -14,9 +14,14 @@ Inventory::Inventory(string name, float price, int count)
 }
 
 // Decrements the number in stock
-void Inventory::sell()
+// Returns true on success, false of failure
+bool Inventory::sell()
 {
-  m_in_stock--;
+  if(m_in_stock > 0) {
+    m_in_stock--;
+    return true;
+  }
+  return false;
 }
 
 // An overloaded << for easy display of item info
